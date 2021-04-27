@@ -1,3 +1,9 @@
 from django.contrib import admin
+from django.contrib.admin import ModelAdmin
 
-# Register your models here.
+from links.models import Link
+
+
+@admin.register(Link)
+class LinkAdmin(ModelAdmin):
+    list_display = ['full_link', 'short_link', 'redirects']

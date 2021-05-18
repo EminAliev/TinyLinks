@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+    <a href="{% url 'links:index' %}" class="btn btn-primary">
+        <i class="fas fa-align-left"></i>
+        Все ссылки
+    </a>
+    <h1 class="mt-2">Создать короткую ссылку</h1>
+    <hr class="mt-0 mb-4">
+    <form
+            method="post"
+            novalidate
+            action="{% url 'links:create_view' %}"
+    >
+        {% csrf_token %}
+        {{ form.orig_link }}
+        <button type="submit" class="btn btn-success">Создать</button>
+    </form>
+{% endblock %}

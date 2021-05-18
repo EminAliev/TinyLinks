@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
     <div class="row">
-        <a href="#" class="btn btn-outline-primary">
+        <a href="{% url 'links:create_view' %}" class="btn btn-outline-primary">
             <i class="fas fa-plus"></i>
-            Create new tiny link
+            Создать короткую ссылку
         </a>
     </div>
     <div class="justify-content-center">
-        <h1 class="mt-2">All links</h1>
+        <h1 class="mt-2">Все ссылки</h1>
     </div>
     <hr class="mt-0 mb-4">
     {% if links_list %}

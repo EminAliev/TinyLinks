@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class Link(models.Model):
@@ -8,3 +9,4 @@ class Link(models.Model):
 
     def __str__(self):
         return self.short_link
+

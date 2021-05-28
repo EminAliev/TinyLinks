@@ -1,35 +1,25 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="row">
-        <a href="{% url 'links:index' %}" class="btn btn-primary">
-            <i class="fas fa-align-left"></i>
-            All links
-        </a>
-        <a href="{% url 'links:new' %}" class="btn btn-outline-primary">
-            <i class="fas fa-plus"></i>
-            Create new tiny link
-        </a>
-    </div>
-    <h1 class="mt-2">Created tiny link</h1>
+    <h1 class="mt-2" style="margin-top: 2.5rem !important;margin-left: 21px">Создание ссылки</h1>
     <hr class="mt-0 mb-4">
-    <div class="card" id="card-shadow">
+    <div class="card" id="card-shadow" style="margin-left: 15px">
         <div class="card-header">
             <span class="badge badge-info">
                 <h5>
                     {{ link.full_link }}
                 </h5>
             </span>
-            <p class="font-weight-normal">was opened {{ link.redirects }} times</p>
+            <p class="font-weight-normal">было открыто {{ link.redirects }} раза</p>
         </div>
         <div class="card-body">
             <a class="card-title"
                href="http://127.0.0.1:8000/links/{{ link.short_link }}">http://127.0.0.1:8000/links/{{ link.short_link }}</a>
-            <a href="{% url 'links:open' link.short_link %}" class="btn btn-primary">
-                Open link
+            <a href="{% url 'links:view' link.short_link %}" class="btn btn-primary">
+                Открыть ссылку
             </a>
             <a href="{% url 'links:delete' link.id %}" class="btn btn-danger">
-                DELETE
+                Удалить ссылку
             </a>
         </div>
     </div>

@@ -1,13 +1,8 @@
 {% extends 'base.html' %}
+
 {% block content %}
-    <div class="row">
-        <a href="{% url 'links:create_view' %}" class="btn btn-outline-primary">
-            <i class="fas fa-plus"></i>
-            Создать короткую ссылку
-        </a>
-    </div>
     <div class="justify-content-center">
-        <h1 class="mt-2">Все ссылки</h1>
+        <h1 class="mt-2" style="margin-top: 2.5rem !important;margin-left: 39px;">Все ссылки</h1>
     </div>
     <hr class="mt-0 mb-4">
     {% if links_list %}
@@ -18,20 +13,20 @@
                         <div class="card-header">
                             <span class="badge badge-info">
                                 <h5>
-                                    {{ link.full_link }}
+                                    <a href="{% url 'links:detail' link.id %}" style="color: white">{{ link.full_link }}</a>
                                 </h5>
                             </span>
-                            <p class="font-weight-normal">was opened # times</p>
+                            <p class="font-weight-normal">было открыто {{ link.redirects }} раза</p>
                         </div>
                         <div class="card-body">
-                            <a class="card-title" href="http://127.0.0.1:8000/links/{{ link.full_link }}">http://127.0.0.1:8000/links/{{ link.full_link }}</a>
-                            <a href="#" class="btn btn-primary">
+                            <a class="card-title" href="http://127.0.0.1:8000/links/{{ link.short_link }}">http://127.0.0.1:8000/links/{{ link.short_link }}</a>
+                            <a href="{% url 'links:view' link.short_link %}" class="btn btn-primary" style="margin-left: 15px;">
                                 <i class="fas fa-link"></i>
-                                OPEN LINK
+                                Открыть ссылку
                             </a>
-                            <a href="#" class="btn btn-danger">
+                            <a href="{% url 'links:delete' link.id %}" class="btn btn-danger">
                                 <i class="far fa-trash-alt"></i>
-                                DELETE
+                                Удалить ссылку
                             </a>
                         </div>
                     </div>
@@ -39,6 +34,6 @@
             {% endfor %}
         </ul>
     {% else %}
-        <p>No tiny links are available</p>
+        <p>Нет доступных ссылок</p>
     {% endif %}
 {% endblock %}

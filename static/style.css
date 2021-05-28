@@ -42,3 +42,10 @@ li.L5, li.L6, li.L7, li.L8 {
     margin-right: 45px;
     margin-top: 16px;
 }
+
+.mt-2, .my-2 {
+    margin-top: 2.5rem !important;
+}
+.btn-outline-primary {
+    margin-left: 55px;
+}

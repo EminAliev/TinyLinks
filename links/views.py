@@ -43,7 +43,7 @@ def create_short_link(request):
 
 
 def short_link_view(request, short_link):
-    link = get_object_or_404(Link, tiny_link=short_link)
+    link = get_object_or_404(Link, short_link=short_link)
     full_link = link.full_link
     link.redirects += 1
     link.save()

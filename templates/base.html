@@ -10,17 +10,26 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-<div class="header">
-    <div class="header__section">
-        <div class="header__item headerlogo">
-            Tiny Links
-        </div>
-        <div class="header__item headerButton"><a style="color: #fff;
-    text-decoration: none;" href="">Список ссылок</a></div>
-        <div class="header__item headerButton"><a style="color: #fff;
-    text-decoration: none;" href="">Создать ссылку</a></div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="{% url 'links:index' %}">ShortLinks</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'links:index' %}">Все ссылки <span class="sr-only">(current)</span></a>
+            </li>
+
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'links:create_view' %}">Создать ссылку<span
+                        class="sr-only">(current)</span></a>
+            </li>
+        </ul>
     </div>
-</div>
+</nav>
 <div id="content">
     {% block content %}
     {% endblock %}
